@@ -17,16 +17,29 @@ const arr3 = {'A': null,
 const split = (str,num_split=0) => str.slice(0,num_split) ;
 
 
-const create_dict =(raw_str='',level_tree=1)=>{
-    const str=raw_str.trim();
-    const len_str = str.length;
-    let dict={};
-    if (len_str ==0){ return dict; };
-    if (len_str==level_tree){
-        dict[split(str,len_str)]=null;
-        return dict;
+// const create_dict =(raw_str='',level_tree=1)=>{
+//     const str=raw_str.trim();
+//     const len_str = str.length;
+//     let dict={};
+//     if (len_str ==0){ return dict; };
+//     if (len_str==level_tree){
+//         dict[split(str,len_str)]=null;
+//         return dict;
+//     };
+//         dict[split(str,len_str-1)]=split(str,len_str);
+//         console.log(split(str,len_str-1));
+//         return dict;
+// }
+
+const mapNode = function(){
+    this.collection ={};
+    this.count =0;
+    this.size = function (){
+        return this.count;
     };
-        dict[split(str,len_str-1)]=split(str,len_str);
-        console.log(split(str,len_str-1));
-        return dict;
+
+    this.set = function(key,value){
+        this.collection[key]=value;
+        this.count++
+    };
 }
