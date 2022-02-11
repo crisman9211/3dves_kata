@@ -44,3 +44,12 @@ const mapNode = function(){
 }
                     
 const split = (str,num_split=0) => str.slice(0,num_split) ;
+
+const reduce_str =(raw_str,level_tree)=>{
+    const str=raw_str.trim(); 
+    const len_str = str.length;
+    let resp=null;
+    if (len_str ==level_tree+1){ return resp; };
+    resp = split(str,level_tree+1);
+    return resp;
+}
