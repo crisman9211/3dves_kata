@@ -15,17 +15,19 @@ const arr3 = {'A': null,
             const arr4 = {'t': {'tr': {'tru': {'true': null, 'trus': {'trust': null}}}}}
 
                     
-const mapNode = function(){
-    this.collection ={};
-    this.count =0;
-    this.size = function (){
-        return this.count;
-    };
-    
-    this.set = function(key,value){
-        this.collection[key]=value;
-        this.count++
-    };
+class MapNode {
+    constructor() {
+        this.collection = {};
+        this.count = 0;
+        this.size = function () {
+            return this.count;
+        };
+
+        this.set = function (key, value) {
+            this.collection[key] = value;
+            this.count++;
+        };
+    }
 }
                     
 const split = (str,num_split=0) => str.slice(0,num_split) ;
@@ -64,9 +66,9 @@ const str_to_arr=(myStr,level_tree=1)=>{
 const tree = (str, level=1)=>{
     let arr= str_to_arr(str,level);
     let i=0;
-    let myNode = new mapNode();
+    let myNode = new MapNode();
     while(i<str.length+1-level){
-        let myTree_prev = new mapNode();
+        let myTree_prev = new MapNode();
         if(i==0){
             myTree_prev.set(str,arr[0]);
         }
