@@ -100,14 +100,15 @@ const setObjFromPath =(object, arr_path, value)=>{
 
 const buildTrie=(...arrStr)=>{
     let myObj={};
+    let myNode = new MapNode();
+
     if (arrStr.length==0){
         return myObj
     }
-
-    let myNode = new MapNode();
-    if(arrStr.length!=0){
+    if (arrStr.length==1){
         myNode = tree(arrStr[0]);
         myObj = myNode.collection;
+        return myObj;
     }
 
     return myObj;
