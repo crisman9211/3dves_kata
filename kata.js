@@ -67,9 +67,10 @@ const str_to_arr=(myStr,level_tree=1)=>{
 }
 
 
-const tree = (str, level=1)=>{
+const tree = (raw_str, level=1)=>{
+    let str=raw_str.trim();
     let arr= str_to_arr(str,level);
-    console.log(arr)
+    // console.log(arr)
     let i=0;
     let myNode = new MapNode();
     while(i<str.length+1-level){
@@ -95,4 +96,19 @@ const setObjFromPath =(object, arr_path, value)=>{
     let newobj= object
     arr_path.reduce((prev, curr,index) => prev[curr]= arr_path.length == ++index ? value: prev[curr], newobj)
     return newobj;
+}
+
+const buildTrie=(...arrStr)=>{
+    let myObj={};
+    if (arrStr.length==0){
+        return myObj
+    }
+
+    let myNode = new MapNode();
+    if(arrStr.length!=0){
+        myNode = tree(arrStr[0]);
+        myObj = myNode.collection;
+    }
+
+    return myObj;
 }
