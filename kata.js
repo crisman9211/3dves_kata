@@ -19,6 +19,7 @@ class MapNode {
     constructor() {
         this.collection = {};
         this.count = 0;
+        this.path=[];
         this.size = function () {
             return this.count;
         };
@@ -26,6 +27,9 @@ class MapNode {
         this.set = function (key, value) {
             this.collection[key] = value;
             this.count++;
+        };
+        this.setPath = function (arr_path) {
+            this.path = arr_path;
         };
     }
 }
@@ -65,6 +69,7 @@ const str_to_arr=(myStr,level_tree=1)=>{
 
 const tree = (str, level=1)=>{
     let arr= str_to_arr(str,level);
+    console.log(arr)
     let i=0;
     let myNode = new MapNode();
     while(i<str.length+1-level){
@@ -78,5 +83,16 @@ const tree = (str, level=1)=>{
         myNode=myTree_prev;
         i++;
     }
+    let path=arr.reverse();
+    path.pop();
+    myNode.setPath(path);
+
     return myNode;
+}
+
+
+const setObjFromPath =(object, arr_path, value)=>{
+    let newobj= object
+    arr_path.reduce((prev, curr,index) => prev[curr]= arr_path.length == ++index ? value: prev[curr], newobj)
+    return newobj;
 }
