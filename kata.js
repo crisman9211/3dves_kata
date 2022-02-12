@@ -48,3 +48,9 @@ const key_path=(str)=>{
     return arr;
 }
 
+
+const setNode =(object, key, value)=>{
+    let newobj= {...object};
+    newobj[key]=value;
+    return newobj
+}
