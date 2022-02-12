@@ -54,3 +54,14 @@ const setNode =(object, key, value)=>{
     newobj[key]=value;
     return newobj
 }
+
+const tree= (str)=>{
+    let path=key_path(str).reverse()
+    let current_value=null;
+    let current_obj={};
+    for (const key_path of path ) {
+        current_obj=setNode({},key_path,current_value);
+        current_value=current_obj
+    }
+    return current_obj;
+}
