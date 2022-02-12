@@ -86,6 +86,7 @@ const tree = (raw_str, level=1)=>{
     }
     let path=arr.reverse();
     path.pop();
+    path.push(raw_str);
     myNode.setPath(path);
 
     return myNode;
