@@ -55,8 +55,8 @@ const setNode =(object, key, value)=>{
     return newobj
 }
 
-const tree= (str)=>{
-    let path=key_path(str).reverse()
+const tree= (str='')=>{
+    let path=key_path(str.trim()).reverse()
     let current_value=null;
     let current_obj={};
     for (const key_path of path ) {
@@ -65,3 +65,23 @@ const tree= (str)=>{
     }
     return current_obj;
 }
+
+// const tree2= (...arr_str)=>{
+//     let path=[]
+//     arr_str.forEach(str => {
+//         let single_path=key_path(str).reverse()
+//         path.push(single_path)
+//     });
+    
+
+//     let current_value=null;
+//     let current_obj={};
+//     path.forEach(pathKey=>{
+
+//         for (const key_path of pathKey ) {
+//             current_obj=setNode({},key_path,current_value);
+//             current_value=current_obj
+//         }
+//     })
+//     return current_obj;
+// }
