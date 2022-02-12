@@ -34,4 +34,17 @@ class MapNode {
         };
     }
 }
-                    
+
+
+
+const key_path=(str)=>{
+    let arr = [];
+    let mixed_str=str.split('');
+    let new_str='';
+    for (let value of mixed_str) {
+        new_str=new_str+value
+        arr.push(new_str)
+    }
+    return arr;
+}
+
